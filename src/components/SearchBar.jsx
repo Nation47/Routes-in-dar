@@ -9,21 +9,18 @@ const SearchBar = ({setResults}) => {
         fetchData(value)
     }
 
-    const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((res) => res.json())
-            .then((json) => {
-                const results = json.filter((user) => {
-                    return (
-                        value&&
-                        user&&
-                        user.name&&
-                        user.name.toLowerCase().includes(value)
-                    );
-                })
-                console.log(results)
-                setResults(results)
-            })
+    const fetchData = async (value) => {
+        if(!value) return;
+
+        try{
+            const res = await fetch("https://jsonplaceholder.typicode.com/users");
+            const data = await res.json();
+            const results = data.filter( user => user.name.toLowerCase().includes(value.toLowerCase()));
+
+            setResults(results);
+        }catch(err) {
+            console.log("Error to fetch data:", err)
+        }
     }
     return (
         <>
