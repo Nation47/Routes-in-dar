@@ -24,8 +24,8 @@ const SearchBar = ({setResults}) => {
     }
     return (
         <>
-            <div className='flex items-center bg-gray-200 p-5 rounded-lg shadow-md justify-center'>
-                <FaSearch  className='text-xl text-blue-600 mr-2'/>
+            <div className='flex items-center bg-blue-700 p-5 rounded-lg shadow-md justify-center'>
+                <FaSearch  className='text-xl text-white mr-2'/>
                 <input 
                     type="text" 
                     placeholder='Search here....' 
